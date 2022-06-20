@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">    
+    
+   <!--  this is normal way to do constructor injection -->    
+    
+    
+     
+    	<bean class="com.ranjan.springCore.constrInjection.Address" name ="add">
+    		<constructor-arg value ="7 Rcr" />
+    		<constructor-arg value ="Delhi" /> 
+    	</bean>
+    	
+    	<bean class="com.ranjan.springCore.constrInjection.Person" name = "per">
+    		<constructor-arg value = "Ranjan"/>
+    		<constructor-arg value = "121"/>
+    		<constructor-arg ref="add"/>
+    		<constructor-arg>
+    			<list>
+    				<value>121233213212</value>
+    				<value>12656797464642</value>
+    				
+    			</list>
+    		</constructor-arg>
+    	</bean>
+    
+    
+    
+    <!-- This is using c schema  -->
+    <!-- 
+    	<bean class="com.ranjan.springCore.constrInjection.Address" name="add" c:houseNo="10 white house" c:locality="WDC"/>
+    	<bean class="com.ranjan.springCore.constrInjection.Person" name="per" c:name="Ranjan" c:id="123" c:address-ref="add"/>
+    -->
+    	
+    	
+    
+
+</beans>
